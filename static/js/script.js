@@ -150,7 +150,7 @@ function showCard(card, activePlayer) {
 }
 
 function blackjackDeal() {
-    computeWinner();
+    showResult(computeWinner());
     let yourImages = document.querySelector('#your-box').querySelectorAll('img');
     let dealerImages = document.querySelector('#dealer-box').querySelectorAll('img');
     for (i = 0; i < yourImages.length; i++) {
@@ -225,7 +225,7 @@ function computeWinner() {
     return winner;
 }
 
-function showResult() {
+function showResult(winner) {
     let message, messageColor;
 
     if (winner === YOU) {
@@ -240,4 +240,7 @@ function showResult() {
         message = 'You drew!';
         messageColor = 'black';
     }
+
+    document.querySelector('#blackjack-result').textContent = message;
+    document.querySelector('#blackjack-result').style.color = messageColor;
 }
